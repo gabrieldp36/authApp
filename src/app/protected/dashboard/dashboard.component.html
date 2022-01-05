@@ -1,0 +1,41 @@
+<div class="container mt-3 animate__animated animate__fadeIn animate__slow">
+
+    <h1 class="font-white"> Información del Usuario </h1>
+    <hr style="color: #37db8c">
+</div>
+
+<div class="info-usuario container mt-2 animate__animated animate__fadeIn animate__slow">
+
+    <div class="row">
+
+        <div class="col">
+
+            <br>
+
+            <p> Nombre: <i> {{usuario.name | titlecase}} </i> </p>
+        
+            <p class="mt-2"> Email: <i> {{usuario.email}} </i>  </p>
+        
+            <p class="mt-2"> Uid: <i > {{usuario.uid}} </i> </p>
+        
+            <br>
+
+        </div>
+
+    </div>
+
+    <div class="col float-end mt-3">
+
+        <button 
+            class="btn btn-danger" 
+            id="boton-logout"
+            onclick="blur()"
+            (click)="logout()"
+        > 
+            Logout
+
+        </button>
+
+    </div>
+
+</div>
