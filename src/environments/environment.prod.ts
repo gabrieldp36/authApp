@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://auth-mean-app-gdp.herokuapp.com/api',
+  baseUrl: 'https://mean-auth-server.onrender.com/api',
 };
