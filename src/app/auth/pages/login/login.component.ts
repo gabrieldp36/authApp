@@ -58,14 +58,15 @@ export class LoginComponent {
     this.authService.login(email, password)
     .subscribe( ok => {
 
-      this.cargando = false;
-
+      
       if( ok ) {
         this.router.navigateByUrl('/dashboard');
+        this.cargando = false;
 
       } else {
 
         Swal.fire( 'Error' , 'Email / Password incorrectos', 'error');
+        this.cargando = false;
       };
     });
   };

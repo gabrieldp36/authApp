@@ -63,10 +63,9 @@ export class RegisterComponent {
     this.authService.registro(name, email, password)
     .subscribe( resp => {
 
-      this.cargando = false;
-
+      
       if( resp ) {
-
+        
         Swal.fire({
           position: 'top-end',
           icon: 'success',
@@ -74,12 +73,13 @@ export class RegisterComponent {
           showConfirmButton: false,
           timer: 1700
         })
-
+        
         this.router.navigateByUrl('/dashboard');
+        this.cargando = false;
 
       } else {
-
         Swal.fire( 'Error' , `Ya existe un usuario registrado con el correo: ${email}`, 'error');
+        this.cargando = false;
       };
     });
   };
