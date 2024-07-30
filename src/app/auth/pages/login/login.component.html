@@ -116,8 +116,17 @@
                 class="login100-form-btn"
                 type="submit"
             >
+                <div>
+                    <span *ngIf="cargando; else btnText ">
+                        <div class="spinner-border text-light" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </span>
 
-                Login
+                    <ng-template #btnText>
+                        Login
+                    </ng-template>
+                </div>
             </button>
 
         </div>

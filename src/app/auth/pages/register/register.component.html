@@ -161,7 +161,17 @@
                 type="submit"
             >
 
-                Registro
+                <div>
+                    <span *ngIf="cargando; else btnText ">
+                        <div class="spinner-border text-light" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </span>
+
+                    <ng-template #btnText>
+                        Registro
+                    </ng-template>
+                </div>
             </button>
 
         </div>

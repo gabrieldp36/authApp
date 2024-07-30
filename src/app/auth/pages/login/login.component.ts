@@ -17,6 +17,7 @@ import { AuthService } from '../../services/auth.service';
 export class LoginComponent {
 
   public emailPatron: string = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
+  public cargando: boolean = false;
 
   miFormulario: FormGroup = this.formBuilder.group({
 
@@ -51,13 +52,15 @@ export class LoginComponent {
       return
     };
 
+    this.cargando = true;
     const {email, password} = this.miFormulario.value;
 
     this.authService.login(email, password)
     .subscribe( ok => {
 
-      if( ok ) {
+      this.cargando = false;
 
+      if( ok ) {
         this.router.navigateByUrl('/dashboard');
 
       } else {

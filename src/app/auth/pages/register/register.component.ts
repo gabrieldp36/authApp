@@ -20,6 +20,8 @@ export class RegisterComponent {
 
   public emailPatron: string = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
 
+  public cargando: boolean = false;
+
   miFormulario: FormGroup = this.formBuilder.group({
 
     name: [ '', [Validators.required, Validators.pattern(this.nombreApellidoPatron) ] ],
@@ -52,13 +54,16 @@ export class RegisterComponent {
 
       this.miFormulario.markAllAsTouched();
 
-      return
+      return;
     };
 
+    this.cargando = true;
     const {name, email, password} = this.miFormulario.value;
 
     this.authService.registro(name, email, password)
     .subscribe( resp => {
+
+      this.cargando = false;
 
       if( resp ) {
 
