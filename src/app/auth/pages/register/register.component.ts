@@ -57,8 +57,6 @@ export class RegisterComponent {
 
     const {name, email, password} = this.miFormulario.value;
 
-    console.log(name, email, password)
-
     this.authService.registro(name, email, password)
     .subscribe( resp => {
 
@@ -76,7 +74,7 @@ export class RegisterComponent {
 
       } else {
 
-        Swal.fire( 'Error' , 'Ya existe un usuario con el e-mail', 'error');
+        Swal.fire( 'Error' , `Ya existe un usuario registrado con el correo: ${email}`, 'error');
       };
     });
   };
